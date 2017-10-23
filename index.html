@@ -39,6 +39,7 @@
     <hr>
     <a onclick="shareWeibo('這是測試用 title','https://ragnakuei.github.io/StaticPage/')">分享至 Weibo</a>
     <hr>
+    <a onclick="shareWeibo('這是測試用 title','https://ragnakuei.github.io/StaticPage/')">分享至 WeChat</a>
     <script>
         function shareLine(title,url){
             window.open("https://line.naver.jp/R/msg/text/?"+title+"%0D%0A"+url
@@ -51,4 +52,67 @@
             , 'location=yes, scrollbars=yes , status=yes');
         }
     </script>
+    <hr>
+    
+    <!-- 以下待 Study -->
+    <script>
+        var imgUrl = 'http://project.chinatimes.com/allie/eelin/images/sm-ing300x400-3.jpg';
+        var lineLink = 'https://ragnakuei.github.io/StaticPage/';
+        var descContent = "description";
+        var shareTitle = 'title';
+        var appid = 'your-app-id (from WeChat)';
+
+        function shareFriend() {
+            WeixinJSBridge.invoke('sendAppMessage',{
+                                    "appid": appid,
+                                    "img_url": imgUrl,
+                                    "img_width": "640",
+                                    "img_height": "640",
+                                    "link": lineLink,
+                                    "desc": descContent,
+                                    "title": shareTitle
+                                    }, function(res) {
+                                    _report('send_msg', res.err_msg);
+                                    })
+        }
+        function shareTimeline() {
+            WeixinJSBridge.invoke('shareTimeline',{
+                                    "img_url": imgUrl,
+                                    "img_width": "640",
+                                    "img_height": "640",
+                                    "link": lineLink,
+                                    "desc": descContent,
+                                    "title": shareTitle
+                                    }, function(res) {
+                                    _report('timeline', res.err_msg);
+                                    });
+        }
+        function shareWeibo() {
+            WeixinJSBridge.invoke('shareWeibo',{
+                                    "content": descContent,
+                                    "url": lineLink,
+                                    }, function(res) {
+                                    _report('weibo', res.err_msg);
+                                    });
+        }
+        // WeChat browser will initial by above function and trigger WeixinJSBridgeReady event.
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+
+                // share to friend
+                WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                    shareFriend();
+                    });
+
+                // share to timeline
+                WeixinJSBridge.on('menu:share:timeline', function(argv){
+                    shareTimeline();
+                    });
+
+                // share to weibo
+                WeixinJSBridge.on('menu:share:weibo', function(argv){
+                    shareWeibo();
+                    });
+                }, false);
+    </script>
+    
 </body>
