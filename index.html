@@ -35,15 +35,18 @@
     <div class="line-it-button" data-lang="zh_Hant" data-type="share-c" data-url="https://ragnakuei.github.io/StaticPage/" style="display: none;"></div>
     <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
     <br>
-    <a href="https://line.naver.jp/R/msg/text/?測試用 github static page%0D%0Ahttps://ragnakuei.github.io/StaticPage/">分享至 Line 方式一</a>
+    <a onclick="shareLine('測試用githubstaticpage','https://ragnakuei.github.io/StaticPage/')" >分享至 Line</a>
     <hr>
-    <a onclick="shareWeibo()">
-        Share Page
-      </a>
+    <a onclick="shareWeibo('這是測試用 title','https://ragnakuei.github.io/StaticPage/')">分享至 Weibo</a>
     <hr>
     <script>
-        function shareWeibo(){
-            window.open("https://service.weibo.com/share/share.php?title="+encodeURIComponent('這是測試用 title')+"&url="+encodeURIComponent("https://ragnakuei.github.io/StaticPage/")
+        function shareLine(title,url){
+            window.open("https://line.naver.jp/R/msg/text/?"+title+"%0D%0A"+url
+            ,'_blank'
+            , 'location=yes, scrollbars=yes , status=yes');
+        }
+        function shareWeibo(title,url){
+            window.open("https://service.weibo.com/share/share.php?title="+encodeURIComponent(title)+"&url="+encodeURIComponent(url)
             , '_blank'
             , 'location=yes, scrollbars=yes , status=yes');
         }
