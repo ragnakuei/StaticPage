@@ -3,31 +3,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:url"           content="https://ragnakuei.github.io/StaticPage/" />
-    <meta property="og:type"          content="website" />
-    <meta property="og:title"         content="測試用" />
-    <meta property="og:description"   content="測試用 github static page" />
-    <meta property="og:image"         content="http://project.chinatimes.com/allie/eelin/images/sm-ing300x400-3.jpg" />
+    <meta property="og:url" content="https://ragnakuei.github.io/StaticPage/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="測試用" />
+    <meta property="og:description" content="測試用 github static page" />
+    <meta property="og:image" content="http://project.chinatimes.com/allie/eelin/images/sm-ing300x400-3.jpg" />
 </head>
 
 <body>
     <h1>static page</h1>
-    <a id="shareBtn" target="_blank" >分享至 Facebook</a>
-    
+    <a id="shareBtn" target="_blank">分享至 Facebook</a>
+
     <div id="fb-root"></div>
     <script>
-        document.getElementById('shareBtn').onclick = function() {
-        FB.ui({
-            method: 'share',
-            display: 'popup',
-            href: 'https://ragnakuei.github.io/StaticPage/',
-        }, function(response){});
-    }</script>
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.9&appId=1919149248359148";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
+        document.getElementById('shareBtn').onclick = function () {
+            FB.ui({
+                method: 'share',
+                display: 'popup',
+                href: 'https://ragnakuei.github.io/StaticPage/',
+            }, function (response) { });
+        }</script>
+    <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.9&appId=1919149248359148";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+
+    <hr>
+
+    <div class="line-it-button" data-lang="zh_Hant" data-type="share-c" data-url="https://ragnakuei.github.io/StaticPage/" style="display: none;"></div>
+    <script src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js" async="async" defer="defer"></script>
+
 </body>
