@@ -1,4 +1,4 @@
-<html lang="en" xmlns:wb="http://open.weibo.com/wb" >
+<html lang="en" >
 
 <head>
     <meta charset="utf-8">
@@ -37,10 +37,15 @@
     <br>
     <a href="https://line.naver.jp/R/msg/text/?測試用 github static page%0D%0Ahttps://ragnakuei.github.io/StaticPage/">分享至 Line 方式一</a>
     <hr>
-    <a href="https://service.weibo.com/share/share.php?url=https://ragnakuei.github.io/StaticPage/" target="_blank">
-        <img style="border: 0;" src="http://project.chinatimes.com/allie/eelin/images/sm-ing300x400-3.jpg" alt="sina-weibo" width="131" height="34" />
-    </a>
+    <a onclick="shareWeibo()">
+        Share Page
+      </a>
     <hr>
-    <script src="https://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-    <wb:share-button addition="simple" type="button" language="zh_tw"></wb:share-button>
+    <script>
+        function shareWeibo(){
+            window.open("https://service.weibo.com/share/share.php?title="+encodeURIComponent('這是測試用 title')+"&url="+encodeURIComponent("https://ragnakuei.github.io/StaticPage/")
+            , '_blank'
+            , 'location=yes, scrollbars=yes , status=yes');
+        }
+    </script>
 </body>
